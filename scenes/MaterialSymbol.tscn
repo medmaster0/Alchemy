@@ -1,0 +1,506 @@
+[gd_scene load_steps=64 format=2]
+
+[ext_resource path="res://scenes/MaterialSymbol.gd" type="Script" id=1]
+[ext_resource path="res://tiles/materials/alum.png" type="Texture" id=2]
+[ext_resource path="res://tiles/materials/antimony.png" type="Texture" id=3]
+[ext_resource path="res://tiles/materials/aqua_vitae.png" type="Texture" id=4]
+[ext_resource path="res://tiles/materials/arsenic_sulphur.png" type="Texture" id=5]
+[ext_resource path="res://tiles/materials/bismuth.png" type="Texture" id=6]
+[ext_resource path="res://tiles/materials/borax.png" type="Texture" id=7]
+[ext_resource path="res://tiles/materials/brass.png" type="Texture" id=8]
+[ext_resource path="res://tiles/materials/burned_alum.png" type="Texture" id=9]
+[ext_resource path="res://tiles/materials/burned_hartshorn.png" type="Texture" id=10]
+[ext_resource path="res://tiles/materials/caustic_lime.png" type="Texture" id=11]
+[ext_resource path="res://tiles/materials/chalc.png" type="Texture" id=12]
+[ext_resource path="res://tiles/materials/cinder.png" type="Texture" id=13]
+[ext_resource path="res://tiles/materials/cinnibar.png" type="Texture" id=14]
+[ext_resource path="res://tiles/materials/clay.png" type="Texture" id=15]
+[ext_resource path="res://tiles/materials/copper.png" type="Texture" id=16]
+[ext_resource path="res://tiles/materials/cribbled_ashes.png" type="Texture" id=17]
+[ext_resource path="res://tiles/materials/crystal.png" type="Texture" id=18]
+[ext_resource path="res://tiles/materials/eggshells.png" type="Texture" id=19]
+[ext_resource path="res://tiles/materials/ginger.png" type="Texture" id=20]
+[ext_resource path="res://tiles/materials/glass.png" type="Texture" id=21]
+[ext_resource path="res://tiles/materials/gold_i.png" type="Texture" id=22]
+[ext_resource path="res://tiles/materials/gold_ii.png" type="Texture" id=23]
+[ext_resource path="res://tiles/materials/gold_iii.png" type="Texture" id=24]
+[ext_resource path="res://tiles/materials/gold_iv.png" type="Texture" id=25]
+[ext_resource path="res://tiles/materials/gold_v.png" type="Texture" id=26]
+[ext_resource path="res://tiles/materials/gold_vi.png" type="Texture" id=27]
+[ext_resource path="res://tiles/materials/gold_vii.png" type="Texture" id=28]
+[ext_resource path="res://tiles/materials/gravel.png" type="Texture" id=29]
+[ext_resource path="res://tiles/materials/iron.png" type="Texture" id=30]
+[ext_resource path="res://tiles/materials/iron_filings.png" type="Texture" id=31]
+[ext_resource path="res://tiles/materials/lead.png" type="Texture" id=32]
+[ext_resource path="res://tiles/materials/lime.png" type="Texture" id=33]
+[ext_resource path="res://tiles/materials/magnesia.png" type="Texture" id=34]
+[ext_resource path="res://tiles/materials/manure.png" type="Texture" id=35]
+[ext_resource path="res://tiles/materials/mercury.png" type="Texture" id=36]
+[ext_resource path="res://tiles/materials/nickel.png" type="Texture" id=37]
+[ext_resource path="res://tiles/materials/niter_flowers.png" type="Texture" id=38]
+[ext_resource path="res://tiles/materials/niter_oil.png" type="Texture" id=39]
+[ext_resource path="res://tiles/materials/nitric_acid.png" type="Texture" id=40]
+[ext_resource path="res://tiles/materials/potash.png" type="Texture" id=41]
+[ext_resource path="res://tiles/materials/red_arsenic.png" type="Texture" id=42]
+[ext_resource path="res://tiles/materials/salt.png" type="Texture" id=43]
+[ext_resource path="res://tiles/materials/silver_i.png" type="Texture" id=44]
+[ext_resource path="res://tiles/materials/silver_ii.png" type="Texture" id=45]
+[ext_resource path="res://tiles/materials/silver_iii.png" type="Texture" id=46]
+[ext_resource path="res://tiles/materials/soapstone.png" type="Texture" id=47]
+[ext_resource path="res://tiles/materials/soot.png" type="Texture" id=48]
+[ext_resource path="res://tiles/materials/steel.png" type="Texture" id=49]
+[ext_resource path="res://tiles/materials/stone.png" type="Texture" id=50]
+[ext_resource path="res://tiles/materials/sugar.png" type="Texture" id=51]
+[ext_resource path="res://tiles/materials/sulphur.png" type="Texture" id=52]
+[ext_resource path="res://tiles/materials/tin.png" type="Texture" id=53]
+[ext_resource path="res://tiles/materials/urine.png" type="Texture" id=54]
+[ext_resource path="res://tiles/materials/verdigris.png" type="Texture" id=55]
+[ext_resource path="res://tiles/materials/vinegar.png" type="Texture" id=56]
+[ext_resource path="res://tiles/materials/vitriol.png" type="Texture" id=57]
+[ext_resource path="res://tiles/materials/white_arsenic.png" type="Texture" id=58]
+[ext_resource path="res://tiles/materials/wine_spirit.png" type="Texture" id=59]
+[ext_resource path="res://tiles/materials/wood.png" type="Texture" id=60]
+[ext_resource path="res://tiles/materials/yellow_arsenic.png" type="Texture" id=61]
+[ext_resource path="res://tiles/materials/yellow_wax.png" type="Texture" id=62]
+[ext_resource path="res://tiles/materials/zinc.png" type="Texture" id=63]
+
+[node name="MaterialSymbol" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+visible = false
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="1"]
+
+visible = false
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite3" type="Sprite" parent="." index="2"]
+
+visible = false
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite4" type="Sprite" parent="." index="3"]
+
+visible = false
+texture = ExtResource( 5 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite5" type="Sprite" parent="." index="4"]
+
+visible = false
+texture = ExtResource( 6 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite6" type="Sprite" parent="." index="5"]
+
+visible = false
+texture = ExtResource( 7 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite7" type="Sprite" parent="." index="6"]
+
+visible = false
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite8" type="Sprite" parent="." index="7"]
+
+visible = false
+texture = ExtResource( 9 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite9" type="Sprite" parent="." index="8"]
+
+visible = false
+texture = ExtResource( 10 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite10" type="Sprite" parent="." index="9"]
+
+visible = false
+texture = ExtResource( 11 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite11" type="Sprite" parent="." index="10"]
+
+visible = false
+texture = ExtResource( 12 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite12" type="Sprite" parent="." index="11"]
+
+visible = false
+texture = ExtResource( 13 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite13" type="Sprite" parent="." index="12"]
+
+visible = false
+texture = ExtResource( 14 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite14" type="Sprite" parent="." index="13"]
+
+visible = false
+texture = ExtResource( 15 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite15" type="Sprite" parent="." index="14"]
+
+visible = false
+texture = ExtResource( 16 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite16" type="Sprite" parent="." index="15"]
+
+visible = false
+texture = ExtResource( 17 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite17" type="Sprite" parent="." index="16"]
+
+visible = false
+texture = ExtResource( 18 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite18" type="Sprite" parent="." index="17"]
+
+visible = false
+texture = ExtResource( 19 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite19" type="Sprite" parent="." index="18"]
+
+visible = false
+texture = ExtResource( 20 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite20" type="Sprite" parent="." index="19"]
+
+visible = false
+texture = ExtResource( 21 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite21" type="Sprite" parent="." index="20"]
+
+visible = false
+texture = ExtResource( 22 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite22" type="Sprite" parent="." index="21"]
+
+visible = false
+texture = ExtResource( 23 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite23" type="Sprite" parent="." index="22"]
+
+visible = false
+texture = ExtResource( 24 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite24" type="Sprite" parent="." index="23"]
+
+visible = false
+texture = ExtResource( 25 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite25" type="Sprite" parent="." index="24"]
+
+visible = false
+texture = ExtResource( 26 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite26" type="Sprite" parent="." index="25"]
+
+visible = false
+texture = ExtResource( 27 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite27" type="Sprite" parent="." index="26"]
+
+visible = false
+texture = ExtResource( 28 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite28" type="Sprite" parent="." index="27"]
+
+visible = false
+texture = ExtResource( 29 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite29" type="Sprite" parent="." index="28"]
+
+visible = false
+texture = ExtResource( 30 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite30" type="Sprite" parent="." index="29"]
+
+visible = false
+texture = ExtResource( 31 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite31" type="Sprite" parent="." index="30"]
+
+visible = false
+texture = ExtResource( 32 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite32" type="Sprite" parent="." index="31"]
+
+visible = false
+texture = ExtResource( 33 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite33" type="Sprite" parent="." index="32"]
+
+visible = false
+texture = ExtResource( 34 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite34" type="Sprite" parent="." index="33"]
+
+visible = false
+texture = ExtResource( 35 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite35" type="Sprite" parent="." index="34"]
+
+visible = false
+texture = ExtResource( 36 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite36" type="Sprite" parent="." index="35"]
+
+visible = false
+texture = ExtResource( 37 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite37" type="Sprite" parent="." index="36"]
+
+visible = false
+texture = ExtResource( 38 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite38" type="Sprite" parent="." index="37"]
+
+visible = false
+texture = ExtResource( 39 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite39" type="Sprite" parent="." index="38"]
+
+visible = false
+texture = ExtResource( 40 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite40" type="Sprite" parent="." index="39"]
+
+visible = false
+texture = ExtResource( 41 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite41" type="Sprite" parent="." index="40"]
+
+visible = false
+texture = ExtResource( 42 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite42" type="Sprite" parent="." index="41"]
+
+visible = false
+texture = ExtResource( 43 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite43" type="Sprite" parent="." index="42"]
+
+visible = false
+texture = ExtResource( 44 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite44" type="Sprite" parent="." index="43"]
+
+visible = false
+texture = ExtResource( 45 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite45" type="Sprite" parent="." index="44"]
+
+visible = false
+texture = ExtResource( 46 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite46" type="Sprite" parent="." index="45"]
+
+visible = false
+texture = ExtResource( 47 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite47" type="Sprite" parent="." index="46"]
+
+visible = false
+texture = ExtResource( 48 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite48" type="Sprite" parent="." index="47"]
+
+visible = false
+texture = ExtResource( 49 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite49" type="Sprite" parent="." index="48"]
+
+visible = false
+texture = ExtResource( 50 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite50" type="Sprite" parent="." index="49"]
+
+visible = false
+texture = ExtResource( 51 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite51" type="Sprite" parent="." index="50"]
+
+visible = false
+texture = ExtResource( 52 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite52" type="Sprite" parent="." index="51"]
+
+visible = false
+texture = ExtResource( 53 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite53" type="Sprite" parent="." index="52"]
+
+visible = false
+texture = ExtResource( 54 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite54" type="Sprite" parent="." index="53"]
+
+visible = false
+texture = ExtResource( 55 )
+centered = false
+_sections_unfolded = [ "Animation", "Offset" ]
+
+[node name="Sprite55" type="Sprite" parent="." index="54"]
+
+visible = false
+texture = ExtResource( 56 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite56" type="Sprite" parent="." index="55"]
+
+visible = false
+texture = ExtResource( 57 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite57" type="Sprite" parent="." index="56"]
+
+visible = false
+texture = ExtResource( 58 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite58" type="Sprite" parent="." index="57"]
+
+visible = false
+texture = ExtResource( 59 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite59" type="Sprite" parent="." index="58"]
+
+visible = false
+texture = ExtResource( 60 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite60" type="Sprite" parent="." index="59"]
+
+visible = false
+texture = ExtResource( 61 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite61" type="Sprite" parent="." index="60"]
+
+visible = false
+texture = ExtResource( 62 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite62" type="Sprite" parent="." index="61"]
+
+visible = false
+texture = ExtResource( 63 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+

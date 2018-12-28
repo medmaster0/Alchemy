@@ -1,0 +1,164 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://AlchemyGame.gd" type="Script" id=1]
+[ext_resource path="res://scenes/MaterialSymbol.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/InstrumentSymbol.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/SeasonSymbol.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ProcessSymbol.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Creature.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Potion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Powder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Bomb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Perfume.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=11]
+
+[node name="AlchemyGame" type="Node" index="0"]
+
+script = ExtResource( 1 )
+MaterialSymbol = ExtResource( 2 )
+InstrumentSymbol = ExtResource( 3 )
+SeasonsSymbol = ExtResource( 4 )
+ProcessSymbol = ExtResource( 5 )
+
+[node name="SeasonSymbol" parent="." index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 896, 16 )
+
+[node name="Label" type="Label" parent="SeasonSymbol" index="4"]
+
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -64.0
+margin_top = -8.0
+margin_right = -2.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Season: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Visibility" ]
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+
+[node name="Label" type="Label" parent="." index="2"]
+
+modulate = Color( 0.145098, 0.172549, 0.231373, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 587.0
+margin_top = 322.0
+margin_right = 627.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Something from nothing"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Creature" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 352, 192 )
+
+[node name="Potion" parent="." index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 800, 336 )
+
+[node name="Powder" parent="." index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 832, 336 )
+
+[node name="Bomb" parent="." index="6" instance=ExtResource( 9 )]
+
+position = Vector2( 864, 336 )
+
+[node name="Perfume" parent="." index="7" instance=ExtResource( 10 )]
+
+position = Vector2( 896, 336 )
+
+[node name="Coin" parent="." index="8" instance=ExtResource( 11 )]
+
+position = Vector2( 896, 32 )
+
+[node name="Label" type="Label" parent="Coin" index="2"]
+
+modulate = Color( 0.145098, 0.172549, 0.231373, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = -8.0
+margin_right = 79.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "x 300"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Visibility" ]
+
+[node name="RecipeLabel" type="Label" parent="." index="9"]
+
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 80.0
+margin_right = 776.0
+margin_bottom = 111.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Recipe: BOMB"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+
