@@ -27,11 +27,13 @@ func _ready():
 func change_symbol(new_tile_index):
 	
 	#Turn off old one...
+	var temp_color = get_child(tile_index).modulate #save the color
 	get_child(tile_index).visible = false
 	
 	#Cahgen to new one
 	tile_index = new_tile_index
 	get_child(tile_index).visible = true
+	get_child(tile_index).modulate = temp_color
 	
 
 

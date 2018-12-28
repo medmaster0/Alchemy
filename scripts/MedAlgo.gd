@@ -135,7 +135,7 @@ func find_path(global_start, global_end, tile_map):
 	#Function vars
 	var open_set = []
 	var closed_set = []
-	var walkable_tiles = [0,1,2,3,4]
+	var walkable_tiles = [-1,0,1,2,3,4]
 	
 	#Convert the coordinates to map_coords
 	var start = tile_map.world_to_map(global_start)
@@ -302,15 +302,15 @@ func isVectorInSet(search_coords, search_set):
 
 
 
-#MODIFIED FOR BUILDING!!!!
+#NEED TO MODIFY FOR ALCHEMY!!!!
 #POSSIBLY GENERAL USE??? LETS SEE ONCE IMPLEMENTED SINCE IM WRITING THIS BEFORE
 #This is a flood search
 #Creates a list of nodes
 #Nodes have form: (position, distance from target)
-func find_tile(global_start, target_tile, tile_map):
-	print("him momo")
+#FOR ALCHEMY: searches item_array (form item_array[ypos*map_width + xpos]
+func find_tile(global_start, target_symbol, tile_map, item_array, map_width, map_height):
 	
-	var walkable_tiles = [0,1,2,3,4]
+	var walkable_tiles = [-1,0,1,2,3,4]
 	
 	var search_q = [] #The list of nodes to search through
 	var search_index = 0 #Which node in the search queue we are currently searching
@@ -326,12 +326,32 @@ func find_tile(global_start, target_tile, tile_map):
 	#Now iterate the search queue , will have to break out when found target
 	while(true):
 		
+		#Bounds check on the search_index (check if we've searched everything...)
+		if search_index >= search_q.size():
+			return([]) #return empty array
+		
 		#get the next node
 		var next_node = search_q[search_index]
 		
-		#Check if that node was the target?!??!
-		if tile_map.get_cellv(next_node.coords) == target_tile:
-			break
+		#Increment counter for the next node
+		search_index = search_index + 1
+		
+		#Do some bounds checking, son... 
+		if next_node.coords.x < 0 || next_node.coords.x >= map_width || next_node.coords.y < 0 || next_node.coords.y >= map_height:
+			continue #don't search there
+		
+#		#Check if that node was the target?!??!
+#		if tile_map.get_cellv(next_node.coords) == target_symbol:
+#			break
+		#Check if there's an item on that tile
+		if item_array[ next_node.coords.y*map_width + next_node.coords.x] != null:
+			#Check if it's the item we wanted
+			if item_array[ next_node.coords.y*map_width + next_node.coords.x].tile_index == target_symbol:
+				print("an item here!!")
+				#Decrement the search_index so it's pointing to this current node...
+				search_index = search_index - 1
+				break
+
 			
 		#else, need to add all the other nodes onto search queue
 		### ALL ADJACENT NODES
@@ -375,8 +395,6 @@ func find_tile(global_start, target_tile, tile_map):
 			if isVectorInSet(new_node.coords,search_q) == false:
 				search_q.append(new_node)
 			
-		#Move on to the next node
-		search_index = search_index + 1
 
 	#end while
 	print("found target")

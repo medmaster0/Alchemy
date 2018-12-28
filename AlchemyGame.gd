@@ -40,11 +40,6 @@ var black_process_color = Color(0.3,0.3,0.3)
 
 func _ready():
 	
-	#DEBUG SHIT
-	print(240.0/255)
-	print(201.0/255)
-	print(26.0/255)
-	
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	randomize()
@@ -79,7 +74,7 @@ func _ready():
 			
 			#DEBUG: change the color
 			#new_material.change_color(earth_color)
-			
+			#new_material.change_symbol(4)
 	
 	#Create a grid of instruments
 	for i in range(14): #spanning x dir
@@ -111,6 +106,23 @@ func _ready():
 		#new_process.change_color(black_process_color)
 		
 			
+			
+			
+
+	#DEBUG: SETP creature path...
+	$Creature.path = MedAlgo.find_tile($Creature.position, 2, $TileMap, materials, map_width, map_height)
+	#$Creature.path = MedAlgo.find_path($Creature.position, Vector2(10,10), $TileMap)
+	
+	#DEBUG
+#	for i in range(materials.size()):
+#		print(materials[i])
+#		var t = Timer.new()
+#		t.set_wait_time(.3)
+#		t.set_one_shot(true)
+#		self.add_child(t)
+#		t.start()
+#		yield(t, "timeout")
+	
 	pass
 
 #func _process(delta):

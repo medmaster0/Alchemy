@@ -1,8 +1,11 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var map = get_parent().find_node("TileMap")
+
+#Movement stuff
+var step_tick = 0.5 #time period for each step
+var step_timer = 0 #will help keep track of when we stepped
+var path = [] #A set of steps to follow in pathfinding (usually set outside)
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -14,7 +17,31 @@ func _ready():
 	
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
+	
+	step_timer = step_timer + delta
+	if step_timer > step_tick:
+		path_step()
+		#update timer
+		step_timer = step_timer - step_tick
+	
+	pass
+
+#A function that takes a step in the stored path
+#Returns true if done with path
+#Returns false if not
+###GOTTA MAKE SURE THIS MAP VARIABLE GETS SET OUTSIDE TOO....
+func path_step():
+	
+	if path.size() == 0:
+		return(true) #Do nothing since there are no more steps left
+	
+	#Take the first Vector2 in the list
+	var next_coords = path.pop_front()
+	
+	#Move the Creature there (remember to convert to world coords from map)
+	position = map.map_to_world(next_coords)
+	
+	return(false)
