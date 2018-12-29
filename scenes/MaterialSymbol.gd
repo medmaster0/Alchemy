@@ -12,7 +12,8 @@ func _ready():
 	randomize()
 	
 	tile_index = randi()%get_children().size()
-	get_child(tile_index).visible = true
+	#get_child(tile_index).visible = true
+	change_symbol(tile_index)
 	
 	#need to color black
 	change_color(Color(0,0,0))

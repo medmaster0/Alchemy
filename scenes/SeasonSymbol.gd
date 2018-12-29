@@ -11,7 +11,7 @@ func _ready():
 	# Initialization here
 	randomize()
 	
-	tile_index = randi()%get_children().size()
+	tile_index = randi()%4
 	get_child(tile_index).visible = true
 	
 	pass

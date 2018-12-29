@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/Perfume.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=11]
 
-[node name="AlchemyGame" type="Node"]
+[node name="AlchemyGame" type="Node" index="0"]
 
 script = ExtResource( 1 )
 MaterialSymbol = ExtResource( 2 )
@@ -89,7 +89,7 @@ text = "Something from nothing"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Anchor", "Margin", "Visibility" ]
 
 [node name="Creature" parent="." index="3" instance=ExtResource( 6 )]
 

@@ -17,11 +17,19 @@ export (PackedScene) var ProcessSymbol
 
 #These array of the form:
 # materials[ ypos*map_width + xpos ]
-
 var materials = [] #list of all material tiles on screen. 
+
+# instruments[ ypos*map_width + xpos ]
 var instruments = [] #list of all instrument tiles on screen
 
+#Recipe stuff
 var processes = [] #list of all process tiles on screen
+var recipe_materials = [] #a list of materials required by recipe
+var current_instruction_number = 0 #keeps track of which step of the recipe we're on...
+
+#Workshop stuff
+var workshop_materials = [] #materials that are dropped off at the workshop area
+var workshop_instruments = [] #instruments that are dropped off at the workshop area
 
 #NED TO DERIVE SOME COLORS FOR THE ELEMNTS
 var fire_color = Color(0.87,0.1,0.227)
@@ -37,6 +45,12 @@ var yellow_process_color = Color(0.94,0.79,0.1)
 var white_process_color = Color(0.79,0.79,0.79)
 var black_process_color = Color(0.3,0.3,0.3)
 
+#STANDARD SCENE GLOBALS
+var world_width #the size of the map (in pixels)
+var world_height #the size of the map (in pixels)
+var map_width #the size of the map (in cells/tiles)
+var map_height #the size of the map (in cells/tiles)
+var cell_size #the amount of pixels in a cell/tile
 
 func _ready():
 	
@@ -45,12 +59,12 @@ func _ready():
 	randomize()
 	
 	#Screen Dimension stuff
-	var world_width = get_viewport().size.x
-	var world_height = get_viewport().size.y
-	var map_width = int($TileMap.world_to_map(Vector2(world_width,0)).x)
-	var map_height = int($TileMap.world_to_map(Vector2(0,world_height)).y)
+	world_width = get_viewport().size.x
+	world_height = get_viewport().size.y
+	map_width = int($TileMap.world_to_map(Vector2(world_width,0)).x)
+	map_height = int($TileMap.world_to_map(Vector2(0,world_height)).y)
 	
-	var cell_size = $TileMap.cell_size #get the cell size for these next calculations
+	cell_size = $TileMap.cell_size #get the cell size for these next calculations
 	
 	#Initialize item position arrays...
 	for i in range(map_height*map_width):
@@ -102,6 +116,23 @@ func _ready():
 		add_child(new_process)
 		processes.append(new_process)
 		
+		#also create a random recipe material next to it there...
+		temp_position = temp_position + Vector2(1*cell_size.x,0)
+		#Create a new material there
+		var new_material = MaterialSymbol.instance()
+		new_material.position = temp_position
+		add_child(new_material)
+		recipe_materials.append(new_material)
+		
+		#Crreate a label for the colon...? NAHHHXXXXT TO IT
+		temp_position = temp_position + Vector2(1*cell_size.x,0)
+		var new_colon_label = Label.new()
+		new_colon_label.margin_left = temp_position.x + cell_size.x/2.0
+		new_colon_label.margin_top = temp_position.y - cell_size.y/2.0
+		new_colon_label.text = ":"
+		new_colon_label.modulate = Color(0,0,0)
+		add_child(new_colon_label)
+		
 		#DEBUG
 		#new_process.change_color(black_process_color)
 		
@@ -109,9 +140,14 @@ func _ready():
 			
 			
 
-	#DEBUG: SETP creature path...
-	$Creature.path = MedAlgo.find_tile($Creature.position, 2, $TileMap, materials, map_width, map_height)
-	#$Creature.path = MedAlgo.find_path($Creature.position, Vector2(10,10), $TileMap)
+	#DEBUG: 
+	print($SeasonSymbol.tile_index)
+	#$Creature.path = MedAlgo.find_tile($Creature.position, recipe_materials[0].tile_index, $TileMap, materials, map_width, map_height)
+	
+	#DEBUG test picking up
+#	var pick_item = MaterialSymbol.instance()
+#	add_child(pick_item)
+#	$Creature.pick_up_item(pick_item)
 	
 	#DEBUG
 #	for i in range(materials.size()):
@@ -125,7 +161,98 @@ func _ready():
 	
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
+	
+	#Constantly checking what state the creature is in
+	if $Creature.path.size() == 0:
+		
+		#Check if need to go to material
+		if $Creature.need_material == true:
+			$Creature.path = MedAlgo.find_tile($Creature.position, recipe_materials[0].tile_index, $TileMap, materials, map_width, map_height)
+			#check if the search was successful
+			if $Creature.path.size()!=0:
+				$Creature.need_material = false
+			return
+			
+		
+		#Check if need to pick up and take material
+		if $Creature.need_to_take_material == true:
+			
+			#Pick up the material
+			var temp_coords = $TileMap.world_to_map($Creature.position) #figure out which map coords were at
+			$Creature.pick_up_item( materials[temp_coords.y*map_width + temp_coords.x] )#pick up the item that is at this creature's location
+			materials[temp_coords.y*map_width + temp_coords.x].queue_free() #free from this tree
+			materials[temp_coords.y*map_width + temp_coords.x] = null #remove from listings
+			
+			#Find a path to the drop off location,,,
+			temp_coords = processes[current_instruction_number].position #identify the location to go to
+			temp_coords = temp_coords + $TileMap.map_to_world(Vector2(4,0)) #4 to the right of it
+			$Creature.path = MedAlgo.find_path($Creature.position, temp_coords, $TileMap)
+			#Check if the search was succsefful
+			if $Creature.path.size()!=0:
+				$Creature.need_to_take_material = false
+			return
+			
+		#Check if need to go to instrument (and drop off material)
+		if $Creature.need_instrument == true:
+			#DROPPING CARRIED ITEM
+			#make new item based on the carried item, then delete creature's
+			var map_material = MaterialSymbol.instance()
+			add_child(map_material)
+			map_material.change_symbol($Creature.carried_item.tile_index)
+			map_material.position = $Creature.position
+			#(delete the old one)
+			$Creature.carried_item.queue_free()
+			$Creature.carried_item = null
+			
+			#Find path to random instrument
+			var instrument_type = randi()%8
+			$Creature.path = MedAlgo.find_tile($Creature.position, instrument_type, $TileMap, instruments, map_width, map_height)
+			#check if the search was successful
+			if $Creature.path.size()!=0:
+				$Creature.need_instrument = false
+			return
+			
+			#$Creature.need_instrument = false
+		
+		#Check if need to pick up instrument and take it
+		if $Creature.need_to_take_instrument == true:
+			#Pick up the instrument
+			var temp_coords = $TileMap.world_to_map($Creature.position) #figure out which map coords were at
+			$Creature.pick_up_item( instruments[temp_coords.y*map_width + temp_coords.x] )#pick up the item that is at this creature's location
+			instruments[temp_coords.y*map_width + temp_coords.x].queue_free() #free from this tree
+			instruments[temp_coords.y*map_width + temp_coords.x] = null #remove from listing
+			
+			#Find a path to the drop off location,,,
+			temp_coords = processes[current_instruction_number].position #identify the location to go to
+			temp_coords = temp_coords + $TileMap.map_to_world(Vector2(5,0)) #4 to the right of it
+			$Creature.path = MedAlgo.find_path($Creature.position, temp_coords, $TileMap)
+			#Check if the search was succsefful
+			if $Creature.path.size()!=0:
+				$Creature.need_to_take_instrument = false
+			return
+			
+		
+		#Check if need to drop off instrument and start cooking
+		if $Creature.need_to_start_cooking ==  true:
+			#DROPPING CARRIED ITEM
+			#make new item based on the carried item, then delete creature's
+			var map_instrument = InstrumentSymbol.instance()
+			add_child(map_instrument)
+			map_instrument.change_symbol($Creature.carried_item.tile_index)
+			map_instrument.position = $Creature.position
+			#(delete the old one)
+			$Creature.carried_item.queue_free()
+			$Creature.carried_item = null
+			
+			#Put Creaturre in position
+			$Creature.position = $Creature.position + Vector2(cell_size.x,0)
+			
+			$Creature.need_to_start_cooking = false
+		
+		#print("happens - (Shouldn'tn't)")
+		
+
+	pass

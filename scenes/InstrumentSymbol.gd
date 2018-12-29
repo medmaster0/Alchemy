@@ -12,7 +12,11 @@ func _ready():
 	randomize()
 	
 	tile_index = randi()%get_children().size()
-	get_child(tile_index).visible = true
+	#get_child(tile_index).visible = true
+	change_symbol(tile_index)
+	
+	#need to color black
+	change_color(Color(0,0,0))
 	
 	pass
 
@@ -20,3 +24,20 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+
+func change_symbol(new_tile_index):
+	
+	#Turn off old one...
+	var temp_color = get_child(tile_index).modulate #save the color
+	get_child(tile_index).visible = false
+	
+	#Cahgen to new one
+	tile_index = new_tile_index
+	get_child(tile_index).visible = true
+	get_child(tile_index).modulate = temp_color
+	
+
+
+#function to change the color of the proper tile
+func change_color(color):
+	get_child(tile_index).modulate = color
