@@ -212,6 +212,7 @@ func _process(delta):
 			$Creature.path = MedAlgo.find_tile($Creature.position, instrument_type, $TileMap, instruments, map_width, map_height)
 			#check if the search was successful
 			if $Creature.path.size()!=0:
+				#Set flag so this doesn't happen again...
 				$Creature.need_instrument = false
 			return
 			
@@ -231,6 +232,7 @@ func _process(delta):
 			$Creature.path = MedAlgo.find_path($Creature.position, temp_coords, $TileMap)
 			#Check if the search was succsefful
 			if $Creature.path.size()!=0:
+				#Set flag so this doesn't happen again...
 				$Creature.need_to_take_instrument = false
 			return
 			
@@ -250,7 +252,11 @@ func _process(delta):
 			#Put Creaturre in position
 			$Creature.position = $Creature.position + Vector2(cell_size.x,0)
 			
+			
+			#Set flag so this doesn't happen again...
 			$Creature.need_to_start_cooking = false
+			
+			
 		
 		#print("happens - (Shouldn'tn't)")
 		

@@ -414,3 +414,30 @@ func find_tile(global_start, target_symbol, tile_map, item_array, map_width, map
 	
 	#return the path
 	return(return_path)
+	
+	
+
+
+
+#generate a shade of golden yellow (for the perfume gold topper thingy)
+func generate_gold():
+	
+	var r = 0.7 + rand_range(0,0.3)
+	#var g = rand_range(0,r)
+	var g = rand_range(0.7,r)
+	var b = 0
+	
+	var gold = Color(r,g,b)
+	return(gold)
+	
+
+#generate a shade of random brown
+func generate_brown():
+	
+	var r = 0.6 + rand_range(0,0.2)
+	var g = r - rand_range(0,0.2) - 0.2 #between a fifth and 2 fifths less than r
+	var b = rand_range(0,g) #no more than g
+	
+	var brown = Color(r,g,b)
+	return(brown)
+
