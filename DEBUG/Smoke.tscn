@@ -6,15 +6,15 @@
 [sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
-trail_divisor = 1
+trail_divisor = 3
 emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 15.0
+spread = 21.0
 flatness = 0.0
-gravity = Vector3( -98, 0, 0 )
-initial_velocity = 127.12
+gravity = Vector3( -23, 0, 0 )
+initial_velocity = 60.0
 initial_velocity_random = 0.0
 angular_velocity = 2.94273e-44
 angular_velocity_random = 0.0
@@ -22,7 +22,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
-radial_accel = -50.0
+radial_accel = -12.0
 radial_accel_random = 0.0
 tangential_accel = 0.0
 tangential_accel_random = 0.0
@@ -40,7 +40,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angle", "Color", "Damping", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
 [node name="Smoke" type="Particles2D" index="0"]
 
