@@ -64,8 +64,9 @@
 [ext_resource path="res://tiles/materials/yellow_wax.png" type="Texture" id=62]
 [ext_resource path="res://tiles/materials/zinc.png" type="Texture" id=63]
 
-[node name="MaterialSymbol" type="Node2D" index="0"]
+[node name="MaterialSymbol" type="Node2D"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

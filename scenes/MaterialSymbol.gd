@@ -6,6 +6,13 @@ extends Node2D
 
 var tile_index #the index of which child/tile is visible
 
+#NEED TO DERIVE COLORS FOR THE 4 ELEMENTAL PROCESSES:
+#yellowing, reddening, blackening, whitening
+var red_process_color = Color(0.87,0.227,0.1)
+var yellow_process_color = Color(0.94,0.79,0.1)
+var white_process_color = Color(0.79,0.79,0.79)
+var black_process_color = Color(0.3,0.3,0.3)
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -41,3 +48,22 @@ func change_symbol(new_tile_index):
 #function to change the color of the proper tile
 func change_color(color):
 	get_child(tile_index).modulate = color
+	
+
+#function to change the symbol color according to a process code
+#Process Codes found in ProcessSymbol scene and script:
+# 0 - blackening
+# 1 - whitening
+# 2 - yellowing
+# 3 - reddening
+func change_process_color(process_code):
+	match(process_code):
+		0:
+			change_color(black_process_color)
+		1:
+			change_color(white_process_color)
+		2:
+			change_color(yellow_process_color)
+		3:
+			change_color(red_process_color)
+

@@ -8,6 +8,7 @@ export (PackedScene) var MaterialSymbol
 export (PackedScene) var InstrumentSymbol
 export (PackedScene) var SeasonsSymbol
 export (PackedScene) var ProcessSymbol
+export (PackedScene) var Smoke
 
 #........................
 #These item and material arrays need to be 2D in the form:
@@ -170,11 +171,11 @@ func _process(delta):
 		
 		#Check if need to go to material
 		if $Creature.need_material == true:
-			$Creature.path = MedAlgo.find_tile($Creature.position, recipe_materials[0].tile_index, $TileMap, materials, map_width, map_height)
+			$Creature.path = MedAlgo.find_tile($Creature.position, recipe_materials[current_instruction_number].tile_index, $TileMap, materials, map_width, map_height)
 			#check if the search was successful
 			if $Creature.path.size()!=0:
 				$Creature.need_material = false
-			return
+			return #Return here so we start at the top of this list of if-else checks
 			
 		
 		#Check if need to pick up and take material
@@ -193,7 +194,7 @@ func _process(delta):
 			#Check if the search was succsefful
 			if $Creature.path.size()!=0:
 				$Creature.need_to_take_material = false
-			return
+			return #Return here so we start at the top of this list of if-else checks
 			
 		#Check if need to go to instrument (and drop off material)
 		if $Creature.need_instrument == true:
@@ -203,6 +204,7 @@ func _process(delta):
 			add_child(map_material)
 			map_material.change_symbol($Creature.carried_item.tile_index)
 			map_material.position = $Creature.position
+			workshop_materials.append(map_material)
 			#(delete the old one)
 			$Creature.carried_item.queue_free()
 			$Creature.carried_item = null
@@ -214,7 +216,7 @@ func _process(delta):
 			if $Creature.path.size()!=0:
 				#Set flag so this doesn't happen again...
 				$Creature.need_instrument = false
-			return
+			return #Return here so we start at the top of this list of if-else checks
 			
 			#$Creature.need_instrument = false
 		
@@ -234,7 +236,7 @@ func _process(delta):
 			if $Creature.path.size()!=0:
 				#Set flag so this doesn't happen again...
 				$Creature.need_to_take_instrument = false
-			return
+			return #Return here so we start at the top of this list of if-else checks
 			
 		
 		#Check if need to drop off instrument and start cooking
@@ -245,20 +247,68 @@ func _process(delta):
 			add_child(map_instrument)
 			map_instrument.change_symbol($Creature.carried_item.tile_index)
 			map_instrument.position = $Creature.position
+			workshop_instruments.append(map_instrument)
 			#(delete the old one)
 			$Creature.carried_item.queue_free()
 			$Creature.carried_item = null
 			
-			#Put Creaturre in position
+			#Put Creature in position
 			$Creature.position = $Creature.position + Vector2(cell_size.x,0)
 			
+			#Create smoke above item... And give it to material as child
+			var new_smoke = Smoke.instance()
+			workshop_materials[current_instruction_number].add_child(new_smoke)
 			
 			#Set flag so this doesn't happen again...
 			$Creature.need_to_start_cooking = false
 			
-			
+			return #Return here so we start at the top of this list of if-else checks
 		
 		#print("happens - (Shouldn'tn't)")
 		
+		if $Creature.need_to_finish_cooking == true:
+			
+			#Add to the counter....
+			$Creature.cooking_timer = $Creature.cooking_timer + delta
+			print($Creature.cooking_timer)
+			
+			#Check if the time has been greater than the amount of time...
+			var cooking_period = 5 #debug
+			#var cooking_period = 10 #prod
+			if $Creature.cooking_timer > cooking_period:
+				#Then stop cooking....
+				
+				#Remove instrument...
+				workshop_instruments[0].queue_free()
+				workshop_instruments.pop_front()
+				
+				#REmove SHmoke
+				#Figure out number of children in the material object (smoke is last one)
+				var num_children = workshop_materials[current_instruction_number].get_children().size()
+				#Remove that smoke child
+				workshop_materials[current_instruction_number].get_child(num_children-1).queue_free()
+				
+				#change color of symbol...
+				var process_code = processes[current_instruction_number].tile_index
+				workshop_materials[current_instruction_number].change_process_color(process_code)
+				
+				#Reset timer....
+				$Creature.cooking_timer = 0
+				
+				#Set flag so this stops happening
+				$Creature.need_to_finish_cooking = false
+				
+				#Move on to next instruction... possibly
+				current_instruction_number = current_instruction_number + 1
+				if current_instruction_number < 5:
+					#turn off all of the Creature flags so it can start again..
+					$Creature.need_material = true
+					$Creature.need_to_take_material = true
+					$Creature.need_instrument = true
+					$Creature.need_to_take_instrument = true
+					$Creature.need_to_start_cooking = true
+					$Creature.need_to_finish_cooking = true
+			
+			return #Return here so we start at the top of this list of if-else checks
 
 	pass

@@ -16,6 +16,10 @@ var need_to_take_material = true # " "
 var need_instrument = true # " " 
 var need_to_take_instrument = true # " " 
 var need_to_start_cooking = true # " "
+var need_to_finish_cooking = true # " " 
+#Timers an shit
+var cooking_timer = 0 #Will accumulate the amount of time since started cooking shit
+
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

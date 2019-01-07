@@ -5,6 +5,11 @@ extends Node2D
 # var b = "textvar"
 
 var tile_index #the index of which child/tile is visible
+#Tile Codes:
+# 0 - blackening
+# 1 - whitening
+# 2 - yellowing
+# 3 - reddening
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
