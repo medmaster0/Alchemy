@@ -1,0 +1,583 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://scenes/MathQuestion.gd" type="Script" id=1]
+[ext_resource path="res://tiles/keys/onePrim.png" type="Texture" id=2]
+[ext_resource path="res://tiles/keys/twoPrim.png" type="Texture" id=3]
+[ext_resource path="res://tiles/keys/threePrim.png" type="Texture" id=4]
+[ext_resource path="res://tiles/keys/fourPrim.png" type="Texture" id=5]
+[ext_resource path="res://tiles/keys/fivePrim.png" type="Texture" id=6]
+[ext_resource path="res://tiles/keys/sixPrim.png" type="Texture" id=7]
+[ext_resource path="res://tiles/keys/sevenPrim.png" type="Texture" id=8]
+[ext_resource path="res://tiles/keys/eightPrim.png" type="Texture" id=9]
+[ext_resource path="res://tiles/keys/ninePrim.png" type="Texture" id=10]
+[ext_resource path="res://tiles/keys/clearPrim.png" type="Texture" id=11]
+[ext_resource path="res://tiles/keys/backPrim.png" type="Texture" id=12]
+[ext_resource path="res://tiles/keys/goPrim.png" type="Texture" id=13]
+[ext_resource path="res://tiles/keys/oneSeco.png" type="Texture" id=14]
+[ext_resource path="res://tiles/keys/twoSeco.png" type="Texture" id=15]
+[ext_resource path="res://tiles/keys/threeSeco.png" type="Texture" id=16]
+[ext_resource path="res://tiles/keys/fourSeco.png" type="Texture" id=17]
+[ext_resource path="res://tiles/keys/fiveSeco.png" type="Texture" id=18]
+[ext_resource path="res://tiles/keys/sixSeco.png" type="Texture" id=19]
+[ext_resource path="res://tiles/keys/sevenSeco.png" type="Texture" id=20]
+[ext_resource path="res://tiles/keys/eightSeco.png" type="Texture" id=21]
+[ext_resource path="res://tiles/keys/nineSeco.png" type="Texture" id=22]
+[ext_resource path="res://tiles/keys/clearSeco.png" type="Texture" id=23]
+[ext_resource path="res://tiles/keys/backSeco.png" type="Texture" id=24]
+[ext_resource path="res://tiles/keys/goSeco.png" type="Texture" id=25]
+
+[node name="MathQuestion" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="QuestionLabel" type="Label" parent="." index="0"]
+
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Question"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnswerLabel" type="Label" parent="." index="1"]
+
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 32.0
+margin_right = 40.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "nswer"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Prim" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Prim" index="0"]
+
+position = Vector2( 0, 80 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="Prim" index="1"]
+
+position = Vector2( 48, 80 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite3" type="Sprite" parent="Prim" index="2"]
+
+position = Vector2( 96, 80 )
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite4" type="Sprite" parent="Prim" index="3"]
+
+position = Vector2( 0, 128 )
+texture = ExtResource( 5 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite5" type="Sprite" parent="Prim" index="4"]
+
+position = Vector2( 48, 128 )
+texture = ExtResource( 6 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite6" type="Sprite" parent="Prim" index="5"]
+
+position = Vector2( 96, 128 )
+texture = ExtResource( 7 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite7" type="Sprite" parent="Prim" index="6"]
+
+position = Vector2( 0, 176 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite8" type="Sprite" parent="Prim" index="7"]
+
+position = Vector2( 48, 176 )
+texture = ExtResource( 9 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite9" type="Sprite" parent="Prim" index="8"]
+
+position = Vector2( 96, 176 )
+texture = ExtResource( 10 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite10" type="Sprite" parent="Prim" index="9"]
+
+position = Vector2( 144, 80 )
+texture = ExtResource( 11 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite11" type="Sprite" parent="Prim" index="10"]
+
+position = Vector2( 160, 144 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite12" type="Sprite" parent="Prim" index="11"]
+
+position = Vector2( 160, 192 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Seco" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 32, 80 )
+
+[node name="Sprite" type="Sprite" parent="Seco" index="0"]
+
+position = Vector2( -32, 0 )
+texture = ExtResource( 14 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="Seco" index="1"]
+
+position = Vector2( 16, 0 )
+texture = ExtResource( 15 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite3" type="Sprite" parent="Seco" index="2"]
+
+position = Vector2( 64, 0 )
+texture = ExtResource( 16 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite4" type="Sprite" parent="Seco" index="3"]
+
+position = Vector2( -32, 48 )
+texture = ExtResource( 17 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite5" type="Sprite" parent="Seco" index="4"]
+
+position = Vector2( 16, 48 )
+texture = ExtResource( 18 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite6" type="Sprite" parent="Seco" index="5"]
+
+position = Vector2( 64, 48 )
+texture = ExtResource( 19 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite7" type="Sprite" parent="Seco" index="6"]
+
+position = Vector2( -32, 96 )
+texture = ExtResource( 20 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite8" type="Sprite" parent="Seco" index="7"]
+
+position = Vector2( 16, 96 )
+texture = ExtResource( 21 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite9" type="Sprite" parent="Seco" index="8"]
+
+position = Vector2( 64, 96 )
+texture = ExtResource( 22 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Sprite10" type="Sprite" parent="Seco" index="9"]
+
+position = Vector2( 112, 0 )
+texture = ExtResource( 23 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite11" type="Sprite" parent="Seco" index="10"]
+
+position = Vector2( 128, 64 )
+texture = ExtResource( 24 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite12" type="Sprite" parent="Seco" index="11"]
+
+position = Vector2( 128, 112 )
+texture = ExtResource( 25 )
+
+[node name="Buttons" type="Node2D" parent="." index="4"]
+
+[node name="Button" type="Button" parent="Buttons" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 80.0
+margin_right = 40.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button2" type="Button" parent="Buttons" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 80.0
+margin_right = 88.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button3" type="Button" parent="Buttons" index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 80.0
+margin_right = 136.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button4" type="Button" parent="Buttons" index="3"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 128.0
+margin_right = 40.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button5" type="Button" parent="Buttons" index="4"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 128.0
+margin_right = 88.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button6" type="Button" parent="Buttons" index="5"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 136.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button7" type="Button" parent="Buttons" index="6"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 176.0
+margin_right = 40.0
+margin_bottom = 216.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button8" type="Button" parent="Buttons" index="7"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 176.0
+margin_right = 88.0
+margin_bottom = 216.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button9" type="Button" parent="Buttons" index="8"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 176.0
+margin_right = 136.0
+margin_bottom = 216.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button10" type="Button" parent="Buttons" index="9"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 80.0
+margin_right = 184.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button11" type="Button" parent="Buttons" index="10"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 128.0
+margin_right = 184.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Button12" type="Button" parent="Buttons" index="11"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 176.0
+margin_right = 184.0
+margin_bottom = 216.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_Button_pressed"]
+
+[connection signal="pressed" from="Buttons/Button2" to="." method="_on_Button2_pressed"]
+
+[connection signal="pressed" from="Buttons/Button3" to="." method="_on_Button3_pressed"]
+
+[connection signal="pressed" from="Buttons/Button4" to="." method="_on_Button4_pressed"]
+
+[connection signal="pressed" from="Buttons/Button5" to="." method="_on_Button5_pressed"]
+
+[connection signal="pressed" from="Buttons/Button6" to="." method="_on_Button6_pressed"]
+
+[connection signal="pressed" from="Buttons/Button7" to="." method="_on_Button7_pressed"]
+
+[connection signal="pressed" from="Buttons/Button8" to="." method="_on_Button8_pressed"]
+
+[connection signal="pressed" from="Buttons/Button9" to="." method="_on_Button9_pressed"]
+
+[connection signal="pressed" from="Buttons/Button10" to="." method="_on_Button10_pressed"]
+
+[connection signal="pressed" from="Buttons/Button11" to="." method="_on_Button11_pressed"]
+
+[connection signal="pressed" from="Buttons/Button12" to="." method="_on_Button12_pressed"]
+
+

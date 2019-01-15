@@ -347,7 +347,6 @@ func find_tile(global_start, target_symbol, tile_map, item_array, map_width, map
 		if item_array[ next_node.coords.y*map_width + next_node.coords.x] != null:
 			#Check if it's the item we wanted
 			if item_array[ next_node.coords.y*map_width + next_node.coords.x].tile_index == target_symbol:
-				print("an item here!!")
 				#Decrement the search_index so it's pointing to this current node...
 				search_index = search_index - 1
 				break
@@ -440,4 +439,6 @@ func generate_brown():
 	
 	var brown = Color(r,g,b)
 	return(brown)
+
+
 

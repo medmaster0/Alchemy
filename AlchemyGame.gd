@@ -75,7 +75,7 @@ func _ready():
 	
 	#Create a grid of materials
 	for i in range(14): #spanning x dir
-		for j in range(21): #spanning y dir
+		for j in range(18): #spanning y dir
 			var temp_position = $TileMap.map_to_world( Vector2(4+i, 8+j) )
 			
 			#Create a new material there
@@ -92,9 +92,9 @@ func _ready():
 			#new_material.change_symbol(4)
 	
 	#Create a grid of instruments
-	for i in range(14): #spanning x dir
+	for i in range(15): #spanning x dir
 		for j in range(7): #spanning y dir
-			var temp_position = $TileMap.map_to_world( Vector2(24+i, 8+j) )
+			var temp_position = $TileMap.map_to_world( Vector2(34+i, 8+j) )
 			
 			#Create a new material there
 			var new_instrument = InstrumentSymbol.instance()
@@ -103,13 +103,13 @@ func _ready():
 			
 			#instruments.append(new_instrument)
 			#Put in proper position of item array
-			instruments[(8+j)*map_width + (24+i)] =  new_instrument
+			instruments[(8+j)*map_width + (45+i)] =  new_instrument
 
 
 	#RECIPES
 	#Create a column of instructions
 	for j in range(5): #spanning y dir
-		var temp_position = $TileMap.map_to_world(Vector2(45, 8+(j*2)))
+		var temp_position = $TileMap.map_to_world(Vector2(22, 8+(j*2)))
 		
 		#Create a process symbol there
 		var new_process = ProcessSymbol.instance()
